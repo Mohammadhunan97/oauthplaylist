@@ -3,7 +3,6 @@
 	/auth/<routename>
 */ 
 
-
 const router = require('express').Router();
 
 router.get('/google',(req,res)=>{
