@@ -6,10 +6,6 @@
 
 const router = require('express').Router();
 
-router.get('/login',(req,res)=>{
-	res.render('login');
-})
-
 router.get('/google',(req,res)=>{
 	// passport.authenticate google
 	res.send('logging in with google');
@@ -18,7 +14,9 @@ router.get('/google',(req,res)=>{
 router.get('/local',(req,res)=>{
 	res.send('logging in locally');
 })
-
+router.get('/logout',(req,res)=>{
+	res.send('logging out');
+})
 
 
 module.exports = router;
