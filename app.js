@@ -2,12 +2,25 @@ const express = require('express'),
 app = express(),
 port = process.env.PORT || 3000,
 authroutes = require('./controller/authroutes'),
-c = console.log;
+userroutes = require('./controller/userroutes'),
+c = console.log,
+mongoose = require('mongoose'),
+bodyParser = require('body-parser');
+
+mongoose.connect('mongodb://localhost/oauthplaylist');
 
 app.set('view engine','ejs');
 app.use(express.static('public'));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+	extended:true
+}))
+
 app.use('/auth',authroutes);
+app.use('/user',userroutes);
+
+
 
 
 
